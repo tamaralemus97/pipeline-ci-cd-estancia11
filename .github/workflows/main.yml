@@ -16,3 +16,12 @@ jobs:
         run: |
           ls -la
           echo "Pipeline funcionando correctamente"
+      - name: Validar HTML
+        run: |
+          echo "Validando HTML..."
+          if grep -q "<html>" index.html; then
+            echo "HTML válido"
+          else
+            echo "HTML inválido"
+            exit 1
+          fi
